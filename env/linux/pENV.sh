@@ -1,0 +1,28 @@
+#!/bin/bash
+# shellcheck disable=SC2086
+
+log_enter pENV
+
+source sENV.sh
+
+
+export PROJ_LABEL=$SYS
+export PROJ_NET=$SYS_NET
+
+export PROJ_CONT=$GEO_CONT
+export PROJ_CONT_DATA_DIR=$GEO_DATA_DIR
+export PROJ_CONT_DIR=$GEO_CONT_DIR
+export PROJ_CONT_HOME_DIR=$GEO_CONT_HOME_DIR
+export PROJ_HOST=$GEO_HOST
+export PROJ_HOST_DIR=$GEO_HOST_DIR
+export PROJ_IMG=$GEO_IMG
+export PROJ_PASSWORD=$GEO_PASSWORD
+export PROJ_PORT_EXT=$GEO_PORT_EXT
+export PROJ_PORT_INT=$GEO_PORT_INT
+export PROJ_USER=$GEO_USER
+export PROJ_VOL=$GEO_VOL
+export PROJ_VOL_DIR=$GEO_VOL_DIR
+
+export PROJ_DB_NAME=$GEO_DB_NAME
+
+log_exit pENV
