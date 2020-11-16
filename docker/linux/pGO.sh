@@ -37,10 +37,9 @@ log_var VOL $VOL
 log_var VOL_DIR $VOL_DIR
 
 docker run \
-       -d \
+       -it \
        -p $HOST:$PORT_EXT:$PORT_INT \
        -h ipa.example.test --read-only \
-       -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
        -v /var/lib/ipa-data:/data:Z freeipa-server [ opts ] \
        --label=$LABEL \
        --name=$CONT \
