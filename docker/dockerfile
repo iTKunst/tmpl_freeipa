@@ -12,4 +12,3 @@ RUN mkdir -p $HOME
 WORKDIR ${HOME}
 
 
-COPY ./System/data/pg/*.sql /docker-entrypoint-initdb.d/
