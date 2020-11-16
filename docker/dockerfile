@@ -1,4 +1,4 @@
-FROM geonode/geoserver
+FROM freeipa/freeipa-server
 
 # https://docker-repo-nexus.dev.ccg-gcc.gc.ca
 
