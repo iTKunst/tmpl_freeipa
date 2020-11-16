@@ -1,4 +1,4 @@
-FROM freeipa/freeipa-server
+FROM freeipa/freeipa-server:centos-8
 
 # https://docker-repo-nexus.dev.ccg-gcc.gc.ca
 

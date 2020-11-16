@@ -1,4 +1,4 @@
-# tmpl_geoserver
+# tmpl_freeipa
 
 Template for configuring and running a posgresql database
 
