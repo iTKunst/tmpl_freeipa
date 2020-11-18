@@ -46,7 +46,7 @@ log_var SYSCTL $SYSCTL
 
 docker run \
        -it \
-       -h $CONT --read-only \
+       -h $CONT \
        -p $HOST:$PORT_EXT:$PORT_INT \
        -v $HOST_GRP_DIR:$CONT_GRP_DIR:ro \
        --mount source=$HOST_DIR,target=$CONT_DIR \
