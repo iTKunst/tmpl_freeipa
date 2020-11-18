@@ -40,7 +40,7 @@ docker run \
        -it \
        -p $HOST:$PORT_EXT:$PORT_INT \
        -h $HOST --read-only \
-       -v $HOST_DIR:$CONT_DIR:Z freeipa-server [ opts ] \
+       -v $HOST_DIR:$CONT_DIR:Z freeipa-server:centos-8 [ opts ] \
        -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
        --label=$LABEL \
        --name=$CONT \
@@ -56,6 +56,6 @@ docker run \
       --sysctl net.ipv6.conf.all.disable_ipv6=0 \
       -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
       --mount source=ipa,target=/data \
-      --network ipanet \
+      --network sec_net \
       --publish 127.0.0.1:443:443 \
-      freeipa-server:latest \
+      freeipa-server:centos-8
