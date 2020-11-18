@@ -48,3 +48,14 @@ docker run \
        $IMG
 
 log_unload pGO
+
+docker run \
+      --name ipa.westeros.local \
+      -ti \
+      -h ipa.westeros.local \
+      --sysctl net.ipv6.conf.all.disable_ipv6=0 \
+      -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+      --mount source=ipa,target=/data \
+      --network ipanet \
+      --publish 127.0.0.1:443:443 \
+      freeipa-server:latest \
