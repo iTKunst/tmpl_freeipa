@@ -40,8 +40,8 @@ docker run \
        -it \
        -p $HOST:$PORT_EXT:$PORT_INT \
        -h $HOST --read-only \
-       -v $HOST_DIR:$CONT_DIR \
-       -v $VOL:$VOL_DIR \
+       -v $HOST_DIR:$CONT_DIR:Z freeipa-server [ opts ] \
+       -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
        --label=$LABEL \
        --name=$CONT \
        --network=$NET \
