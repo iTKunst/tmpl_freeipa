@@ -59,13 +59,3 @@ docker run \
 
 log_unload pGO
 
-#docker run \
-#      -ti \
-#      -h ipa.westeros.local \
-#      -p 127.0.0.1:443:443 \
-#      -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-#      --mount source=ipa,target=/data \
-#      --name ipa.westeros.local \
-#      --network sec_net \
-#      --sysctl net.ipv6.conf.all.disable_ipv6=0 \
-#      freeipa/freeipa-server:centos-8
