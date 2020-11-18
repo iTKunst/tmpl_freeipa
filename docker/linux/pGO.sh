@@ -41,6 +41,7 @@ docker run \
        -p $HOST:$PORT_EXT:$PORT_INT \
        -h $HOST --read-only \
        -v $HOST_DIR:$CONT_DIR \
+       -v $VOL:$VOL_DIR \
        --label=$LABEL \
        --name=$CONT \
        --network=$NET \
