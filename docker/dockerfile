@@ -1,14 +1,6 @@
 FROM freeipa/freeipa-server:centos-8
 
-# https://docker-repo-nexus.dev.ccg-gcc.gc.ca
-
 USER root
 
-EXPOSE 8080
-
-ARG HOME
-
-RUN mkdir -p $HOME
-WORKDIR ${HOME}
 
 
