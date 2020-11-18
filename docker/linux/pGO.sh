@@ -22,6 +22,10 @@ USER=$PROJ_USER
 VOL=$PROJ_VOL
 VOL_DIR=$PROJ_VOL_DIR
 
+CONT_GRP_DIR=$PROJ_CONT_GRP_DIR
+HOST_GRP_DIR=$PROJ_HOST_GRP_DIR
+SYSCTL=$PROJ_SYSCTL
+
 log_var CONT $CONT
 log_var CONT_DIR $CONT_DIR
 log_var HOST $HOST
@@ -36,26 +40,32 @@ log_var USER $USER
 log_var VOL $VOL
 log_var VOL_DIR $VOL_DIR
 
+log_var CONT_GRP_DIR $CONT_GRP_DIR
+log_var HOST_GRP_DIR $HOST_GRP_DIR
+log_var SYSCTL $SYSCTL
+
 docker run \
        -it \
+       -h $CONT --read-only \
        -p $HOST:$PORT_EXT:$PORT_INT \
-       -h $HOST --read-only \
-       -v $HOST_DIR:$CONT_DIR:Z freeipa-server:centos-8 [ opts ] \
-       -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+       -v $HOST_GRP_DIR:$CONT_GRP_DIR:ro \
+       --mount source=$HOST_DIR,target=$CONT_DIR \
        --label=$LABEL \
        --name=$CONT \
        --network=$NET \
+       --sysctl $SYSCTL \
        $IMG
+
 
 log_unload pGO
 
-docker run \
-      --name ipa.westeros.local \
-      -ti \
-      -h ipa.westeros.local \
-      --sysctl net.ipv6.conf.all.disable_ipv6=0 \
-      -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-      --mount source=ipa,target=/data \
-      --network sec_net \
-      --publish 127.0.0.1:443:443 \
-      freeipa-server:centos-8
+#docker run \
+#      -ti \
+#      -h ipa.westeros.local \
+#      -p 127.0.0.1:443:443 \
+#      -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+#      --mount source=ipa,target=/data \
+#      --name ipa.westeros.local \
+#      --network sec_net \
+#      --sysctl net.ipv6.conf.all.disable_ipv6=0 \
+#      freeipa/freeipa-server:centos-8
