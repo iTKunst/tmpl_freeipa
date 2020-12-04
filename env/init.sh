@@ -4,6 +4,6 @@
 
 log_enter /$DIR_PROJ/env/init
 
-cp ./$DIR_PROJ/env/linux/*.sh ./Env
+cp ./$DIR_PROJ/env/linux/*.sh ./bin
 
 log_exit /$DIR_PROJ/env/init
