@@ -31,7 +31,7 @@ Template for configuring and running a posgresql database
 6. Click **Clone**
 
 ### Specify the system name
-1. Edit **proj_root\bin.sh** or **proj_root\bin.bat** and set the SYS value to 'cvms'.
+1. Edit **proj_root/env.sh** or **proj_root/env.bat** and set the SYS value to 'cvms'.
 
 ### Update or Set the Variables for the project
 > [Edit Project variables](project/README.md)
