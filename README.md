@@ -1,47 +1,62 @@
-# tmpl_freeipa
+# Docker Templating System (DTS)
+Designed to simplify the process of creating and running containers
 
-Template for configuring and running a posgresql database
+## tmpl_freeipa
 
-### Create the new repo with the template
+Template for configuring and running a freeipa system
 
-1. Log in to gitlab 
+### Check or Modify Environment variables for project
 
-> <https://gitlab.dev.ccg-gcc.gc.ca>
+#### View Global Values
+1. Open the **gENV.sh** or the **gENV.cmd** file located in the <proj_dir>/global/env folder.
+2. Go to the FREEIPA section to view global values.  These should never be changed
+```
+# FREEIPA
 
-2. Click on **New Project**. 
-3. Select the **Import project** tab
-4. Enter the URL of the **tmpl_geoserver** repo.
+export FREE_CONT=$SYS_CONT$FREE_TAG
+export FREE_CONT_HOME_DIR=$DATA_DIR
+export FREE_HOST_DIR=$IPA
+export FREE_IMG=$SYS_IMG$FREE_TAG
+export FREE_PORT_INT=443
+export FREE_VOL=$SYS_VOL$FREE_TAG
 
-> <https://username:password@gitlab.dev.ccg-gcc.gc.ca/cvms/tmpl_geoserver.git>
+export FREE_CONT_DIR=$FREE_CONT_HOME_DIR
+export FREE_CONT_DATA_DIR=$FREE_CONT_HOME_DIR
+export FREE_VOL_DIR=$FREE_CONT_HOME_DIR$DATA_DIR
 
-5. Modify the URL by adding your username and password. (It is recommended that your password not have any special characters in it.)
-6. Ensure that the **Project path** has **cvms**.
-7. Enter the name of the project in **Project name**.
-8. Enter a description in **Project description**.
-9. Click **Create project**.
+```
 
-### Clone the new repo
+#### View/Set System Values
+1. Open the **sENV_MOD.sh** or the **sENV_MOD.cmd** file located in the <sys_proj_dir>/env folder.
+2. Go to the FREEIPA section to view default values.
+3. Modify values if required.
+4. Check in system changes.
+```
+# FREEIPA
+export FREE_CONT_GRP_DIR=/sys/fs/cgroup
+export FREE_DOMAIN=ipa.com
+export FREE_HOST_GRP_DIR=/sys/fs/cgroup
+export FREE_PASSWORD=FREE
+export FREE_PORT_EXT=443
+export FREE_SYSCTL=net.ipv6.conf.all.disable_ipv6=0
+export FREE_USER=pjldooley@gmail.com
 
-1. Copy the url of the repo 
-> <https://gitlab.dev.ccg-gcc.gc.ca/cvms/repo_name>
-2. In Intellij IDEA select **File/New/Project From Version Control**
-3. Ensure Version control is set to **Git**
-4. Enter the URL of the repo in the URL field
-5. Select the directory where you wish the repo to go
-6. Click **Clone**
+```
 
-### Specify the system name
-1. Edit **proj_root/env.sh** or **proj_root/env.bat** and set the SYS value to 'cvms'.
+5. Open the sENV_HOST.sh or the sENV_HOST.cmd file located in the <sys_proj_dir>/env folder.
+```
+# FREEIPA
+export FREE_HOST=0.0.0.0
+```
 
-### Update or Set the Variables for the project
-> [Edit Project variables](project/README.md)
+### Update the project with the changed settings
+> Run **pUPDATE.sh** or **pUPDATE.cmd**
 
-### Update or Set the Variables for the system 
-> [Edit System variables](system/README.md)
+### Stop and delete the container and delete the image
+> Run **pKILL.sh** or **pKILL.cmd**
 
-#### Build and Run
-1. Run **./build.sh** or **build.bat**
-2. Run **./run.sh** or **run.bat**
+### Build image
+> Run **pBUILD.sh** or **pBUILD.cmd**
 
-### Verify
-1. Run **./view.sh** or **view.bat**
+### Create and run container
+> Run **pGO.sh** or **pGO.cmd** 
