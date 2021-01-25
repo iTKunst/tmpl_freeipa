@@ -4,6 +4,6 @@
 
 log_enter /$DIR_TMPL/env/init
 
-cp ./$DIR_PROJ/env/linux/*.sh ./bin
+cp ./$DIR_TMPL/env/linux/*.sh ./bin
 
-log_exit /$DIR_PROJ/env/init
+log_exit /$DIR_TMPL/env/init
