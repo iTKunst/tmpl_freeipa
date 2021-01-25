@@ -2,7 +2,7 @@
 # shellcheck disable=SC2086
 
 
-log_enter /$DIR_PROJ/env/init
+log_enter /$DIR_TMPL/env/init
 
 cp ./$DIR_PROJ/env/linux/*.sh ./bin
 
