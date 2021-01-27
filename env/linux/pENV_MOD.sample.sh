@@ -1,0 +1,20 @@
+#!/bin/bash
+# shellcheck disable=SC2086
+
+
+log_enter pENV_MOD
+
+source sENV.sh
+
+
+export PROJ_HOST=$FREE_HOST
+export PROJ_PASSWORD=$FREE_PASSWORD
+export PROJ_PORT_EXT=$FREE_PORT_EXT
+export PROJ_USER=$FREE_USER
+
+export PROJ_CONT_GRP_DIR=$FREE_CONT_GRP_DIR
+export PROJ_DOMAIN=$FREE_DOMAIN
+export PROJ_HOST_GRP_DIR=$FREE_HOST_GRP_DIR
+export PROJ_SYSCTL=$FREE_SYSCTL
+
+log_exit pENV_MOD
