@@ -3,7 +3,8 @@
 
 call LOG_ENTER pENV
 
-CALL sENV
+call sENV
+call pENV_MOD
 
 SET "PROJ_LABEL=%SYS%"
 SET "PROJ_NET=%SYS_NET%"
