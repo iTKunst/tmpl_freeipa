@@ -7,7 +7,7 @@ source sENV.sh
 source pENV_MOD.sh
 
 
-export PROJ_LABEL=$SYS
+export PROJ_LABEL=$SYS_NAME
 export PROJ_NET=$SYS_NET
 
 export PROJ_CONT=$FREE_CONT
