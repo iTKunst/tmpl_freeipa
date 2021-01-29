@@ -34,6 +34,7 @@ log_var HOST $HOST
 log_var HOST_DIR $HOST_DIR
 log_var IMG $IMG
 log_var LABEL $LABEL
+log_var MODE $MODE
 log_var NET $NET
 log_var PASSWORD $PASSWORD
 log_var PORT_EXT $PORT_EXT
