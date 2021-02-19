@@ -4,7 +4,10 @@
 log_enter pENV
 
 source sENV.sh
-source project/pENV_MOD.sh
+if [ -f "project/pENV_MOD.sh" ]; then
+  source project/pENV_MOD.sh
+fi
+
 
 
 export PROJ_LABEL=$SYS_NAME
